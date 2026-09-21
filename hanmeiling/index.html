@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩美玲官方网站。本站提供韩美玲的生平介绍、主要作品列表、相关活动资讯及粉丝社区互动信息。">
+    <meta name="keywords" content="韩美玲, 韩美玲官网, 韩美玲作品, 韩美玲生平, 韩美玲资讯">
+    <title>韩美玲-人物传记、代表作品与生平资讯平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #a93226;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            padding: 60px 0;
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .bio-avatar {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        .bio-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bio-info p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        /* Works Grid */
+        .works-section {
+            padding: 60px 0;
+            background-color: #eef2f3;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .work-content {
+            padding: 20px;
+        }
+
+        .work-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        /* Timeline/News */
+        .news-section {
+            padding: 60px 0;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            align-items: flex-start;
+        }
+
+        .news-date {
+            min-width: 100px;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-align: center;
+            border-right: 2px solid #eee;
+            padding-right: 20px;
+            margin-right: 20px;
+        }
+
+        .news-date span {
+            display: block;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .news-date small {
+            font-size: 0.9rem;
+        }
+
+        .news-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .bio-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .bio-info p {
+                text-align: left;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .news-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-date {
+                border-right: none;
+                border-bottom: 2px solid #eee;
+                padding-right: 0;
+                padding-bottom: 10px;
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">韩美<span>玲</span>工作室</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#bio">生平简介</a></li>
+                    <li><a href="#works">代表作品</a></li>
+                    <li><a href="#news">最新动态</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <h1>韩美玲</h1>
+                <p>探索艺术与生活交织的旅程，记录成长、创作与分享的每一个瞬间。</p>
+                <a href="#works" class="btn">查看作品集</a>
+            </div>
+        </section>
+
+        <!-- Bio Section -->
+        <section id="bio" class="bio-section">
+            <div class="container">
+                <h2 class="section-title">生平简介</h2>
+                <div class="bio-grid">
+                    <div class="bio-image">
+                        <!-- 使用 picsum 随机图片作为占位符 -->
+                        <img src="https://picsum.photos/seed/hanmeiling/400/500" alt="韩美玲肖像" class="bio-avatar">
+                    </div>
+                    <div class="bio-info">
+                        <h2>关于韩美玲</h2>
+                        <p>韩美玲，当代知名创作者，致力于通过视觉艺术与文字表达，探索人与人、人与自然之间的深层联系。她拥有丰富的创作经验，涉足插画、平面设计及新媒体艺术等多个领域。</p>
+                        <p>韩美玲的作品风格细腻且富有情感张力，善于捕捉生活中的细微瞬间，将其转化为具有普遍共鸣的艺术语言。在她的创作理念中，艺术不仅仅是视觉的呈现，更是心灵的沟通。</p>
+                        <p>多年来，韩美玲坚持在国内外多个城市举办个人展览，并参与了多项重要的艺术项目合作。她的作品被多家艺术机构及私人收藏家收藏。</p>
+                        <p>除了艺术创作，韩美玲还热衷于艺术教育，定期举办工作坊，与年轻一代分享创作心得，鼓励更多人发现生活中的美。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="works-section">
+            <div class="container">
+                <h2 class="section-title">代表作品</h2>
+                <div class="works-grid">
+                    <!-- Work 1 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art1/400/300" alt="作品名称" class="work-img">
+                        <div class="work-content">
+                            <h3>时光的纹理</h3>
+                            <div class="work-meta">
+                                <span class="tag">油画</span>
+                                <span class="tag">2023</span>
+                            </div>
+                            <p>这幅作品通过细腻的笔触，描绘了城市变迁中的记忆碎片，表达了时间流逝带来的沧桑与希望。</p>
+                        </div>
+                    </article>
+
+                    <!-- Work 2 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art2/400/300" alt="作品名称" class="work-img">
+                        <div class="work-content">
+                            <h3>静谧的角落</h3>
+                            <div class="work-meta">
+                                <span class="tag">水彩</span>
+                                <span class="tag">2023</span>
+                            </div>
+                            <p>以室内静物为题材，利用光影变化展现空间的静谧氛围，传递出一种内心的平和与安宁。</p>
+                        </div>
+                    </article>
+
+                    <!-- Work 3 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art3/400/300" alt="作品名称" class="work-img">
+                        <div class="work-content">
+                            <h3>都市回响</h3>
+                            <div class="work-meta">
+                                <span class="tag">数字艺术</span>
+                                <span class="tag">2022</span>
+                            </div>
+                            <p>结合现代城市景观与抽象几何元素，探索现代人在快节奏生活中的精神状态与自我表达。</p>
+                        </div>
+                    </article>
+
+                    <!-- Work 4 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art4/400/300" alt="作品名称" class="work-img">
+                        <div class="work-content">
+                            <h3>自然之语</h3>
+                            <div class="work-meta">
+                                <span class="tag">装置艺术</span>
+                                <span class="tag">2022</span>
+                            </div>
+                            <p>利用自然材料构建的互动装置，邀请观众走进其中，感受自然元素带来的感官体验与思考。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- News/Timeline Section -->
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2 class="section-title">最新动态</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">
+                            <span>15</span>
+                            <small>2023年10月</small>
+                        </div>
+                        <div class="news-content">
+                            <h3>个展“光影之间”在市中心画廊开幕</h3>
+                            <p>韩美玲的最新个展“光影之间”于今日在市中心画廊正式开幕。展览将持续一个月，展出包括油画、素描及数字作品在内的30余件新作。</p>
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">
+                            <span>02</span>
+                            <small>2023年09月</small>
+                        </div>
+                        <div class="news-content">
+                            <h3>参与“当代女性艺术家”联合巡展</h3>
+                            <p>韩美玲受邀参与“当代女性艺术家”联合巡展，其作品《生长》将在多个城市的美术馆展出，探讨女性视角下的力量与柔韧。</p>
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">
+                            <span>20</span>
+                            <small>2023年08月</small>
+                        </div>
+                        <div class="news-content">
+                            <h3>秋季艺术工作坊报名开启</h3>
+                            <p>为了回馈广大艺术爱好者的支持，韩美玲工作室秋季工作坊报名通道现已开启。本次课程将重点讲解色彩构成与情感表达。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bio-section" style="background-color: white;">
+            <div class="container" style="text-align: center;">
+                <h2 class="section-title">联系合作</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-secondary);">如有展览邀约、作品收藏或商务合作意向，请通过以下方式联系。</p>
+                <a href="mailto:contact@hanmeiling.com" class="btn">发送邮件</a>
+                <div style="margin-top: 30px; font-size: 0.9rem; color: #999;">
+                    <p>邮箱: contact@hanmeiling.com</p>
+                    <p>地址: 中国某市艺术区创意园A座101</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">首页</a>
+                <a href="#bio">简介</a>
+                <a href="#works">作品</a>
+                <a href="#news">资讯</a>
+                <a href="#contact">联系</a>
+            </div>
+            <p class="copyright">&copy; 2023 韩美玲工作室 版权所有. 保留所有权利.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
