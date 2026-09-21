@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lol女警-凯特琳出装、符文搭配与实战攻略指南</title>
+    <meta name="description" content="本站提供英雄联盟女警凯特琳的全面攻略，包含最新版本出装推荐、天赋符文搭配、对线技巧、连招教学以及团战走位指南，助你提升上分效率。">
+    <meta name="keywords" content="lol女警, 英雄联盟女警, 凯特琳攻略, 女警出装, 英雄联盟符文">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e3a857;
+            --secondary-color: #1a1a1a;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --accent-red: #d32f2f;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(227, 168, 87, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin: 0;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Build Grid */
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .build-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .build-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: #eee;
+            color: #555;
+        }
+
+        .item-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Skill Tree */
+        .skill-tree {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .skill-row:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 24px;
+            bottom: -15px;
+            width: 2px;
+            background-color: #eee;
+        }
+
+        .skill-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .skill-info h4 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .skill-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Guides List */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .guide-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .guide-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .guide-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .guide-tags span {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background: rgba(227, 168, 87, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+
+        details {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            margin-top: 10px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #888;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <span>⚡</span> LOL攻略网
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">英雄大全</a></li>
+                <li><a href="#">装备库</a></li>
+                <li><a href="#">符文模拟器</a></li>
+                <li><a href="#">视频教学</a></li>
+            </ul>
+        </nav>
+        <button class="search-btn">🔍</button>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>lol女警</h1>
+            <p>皮城女警 凯特琳 | 追击本能与超远距离压制</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>75.2%</h3>
+                    <p>胜率 (中单)</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.8%</h3>
+                    <p>登场率 (全分段)</p>
+                </div>
+                <div class="stat-item">
+                    <h3>T2</h3>
+                    <p>当前版本强度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Left Column: Content -->
+        <div class="main-content">
+            
+            <!-- Latest Builds -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">热门出装推荐</h2>
+                    <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部出装 &rarr;</a>
+                </div>
+                <div class="build-grid">
+                    <!-- Build 1 -->
+                    <article class="build-card">
+                        <div class="card-header">
+                            <span class="card-title">标准AD Carry</span>
+                            <span class="tag">通用</span>
+                        </div>
+                        <div class="item-list">
+                            <div class="item">⚡ 多兰之盾</div>
+                            <div class="item">👟 出门装</div>
+                            <div class="item">🗡️ 长剑</div>
+                            <div class="item">👟 面具鞋</div>
+                            <div class="item">🛡️ 幻影之舞</div>
+                            <div class="item">⚔️ 无尽之刃</div>
+                            <div class="item">⚔️ 饮血剑</div>
+                        </div>
+                    </article>
+
+                    <!-- Build 2 -->
+                    <article class="build-card">
+                        <div class="card-header">
+                            <span class="card-title">穿透爆发流</span>
+                            <span class="tag">刺客</span>
+                        </div>
+                        <div class="item-list">
+                            <div class="item">⚡ 长剑</div>
+                            <div class="item">👟 出门装</div>
+                            <div class="item">🗡️ 长剑</div>
+                            <div class="item">👟 面具鞋</div>
+                            <div class="item">🛡️ 幻影之舞</div>
+                            <div class="item">⚔️ 凛冬之怒</div>
+                            <div class="item">⚔️ 守护天使</div>
+                        </div>
+                    </article>
+
+                    <!-- Build 3 -->
+                    <article class="build-card">
+                        <div class="card-header">
+                            <span class="card-title">半肉消耗流</span>
+                            <span class="tag">团战</span>
+                        </div>
+                        <div class="item-list">
+                            <div class="item">⚡ 多兰之盾</div>
+                            <div class="item">👟 出门装</div>
+                            <div class="item">🗡️ 长剑</div>
+                            <div class="item">👟 面具鞋</div>
+                            <div class="item">🛡️ 贪婪之靴</div>
+                            <div class="item">🛡️ 斯特拉克的挑战护手</div>
+                            <div class="item">⚔️ 凛冬之怒</div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Skill Tree -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">技能加点顺序</h2>
+                </div>
+                <div class="skill-tree">
+                    <div class="skill-row">
+                        <div class="skill-icon">P</div>
+                        <div class="skill-info">
+                            <h4>手枪射击</h4>
+                            <p>被动：下一次普通攻击距离增加，造成额外伤害。</p>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-icon">Q</div>
+                        <div class="skill-info">
+                            <h4>和平使者</h4>
+                            <p>凯特琳向目标发射一枚手雷，造成物理伤害。如果击中英雄，会减少其移动速度。</p>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-icon">W</div>
+                        <div class="skill-info">
+                            <h4>90口径绳索</h4>
+                            <p>凯特琳向目标地点发射绳索将自己拉过去。如果命中英雄，造成晕眩效果。</p>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-icon">E</div>
+                        <div class="skill-info">
+                            <h4>冷静脉冲</h4>
+                            <p>凯特琳每5次攻击获得一层效果，再次释放会引爆所有层数，对周围敌人造成伤害并减速。</p>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-icon">R</div>
+                        <div class="skill-info">
+                            <h4>死神之吻</h4>
+                            <p>凯特琳标记一个区域，在2秒后对区域内的所有敌人造成巨额物理伤害。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Guides -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">进阶玩法指南</h2>
+                </div>
+                <div class="guide-list">
+                    <article class="guide-item">
+                        <div class="guide-content">
+                            <h3>对线期压制技巧：如何利用射程优势</h3>
+                            <p>女警的核心优势在于75的射程。利用和平使者（Q）消耗对手血量，并配合冷静脉冲（E）的减速效果，迫使敌方补刀。当对手交出位移技能时，果断使用90口径绳索（W）晕眩并打出爆发伤害。</p>
+                            <div class="guide-tags">
+                                <span>对线技巧</span>
+                                <span>消耗</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="guide-item">
+                        <div class="guide-content">
+                            <h3>团战站位与技能释放</h3>
+                            <p>团战中，女警不应冲入人群。寻找侧翼或草丛位置，等待敌方关键控制技能交出后，使用大招（R）封锁走位。注意保持与C位的距离，利用绳索（W）进场或撤退。</p>
+                            <div class="guide-tags">
+                                <span>团战思路</span>
+                                <span>大招使用</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="guide-item">
+                        <div class="guide-content">
+                            <h3>连招教学：R闪与Q闪</h3>
+                            <p>R闪（大招闪现）：在大招标记的瞬间按下闪现，可以改变落点，用于收割残血或封锁更刁钻的走位。Q闪：将Q技能释放至闪现落点，用于远程消耗或配合打野Gank。</p>
+                            <div class="guide-tags">
+                                <span>连招</span>
+                                <span>操作</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">常见问题 (FAQ)</h2>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>女警在什么分段比较强势？</summary>
+                        <p>女警在低分段和中分段表现优异，因为她极高的射程和硬控（W）非常克制没有位移的英雄。在超高分段，由于阵容容错率低，出场率会有所下降，但依然是T2级别的选择。</p>
+                    </details>
+                    <details>
+                        <summary>女警出什么鞋子？</summary>
+                        <p>通常情况下推荐购买贪欲战靴（攻速鞋）以增加攻速，更快触发被动。如果敌方控制技能极多，可以选择水银之靴（减控）；如果对方AD爆发高，则选择铁板靴。</p>
+                    </details>
+                    <details>
+                        <summary>如何应对被对面刺客切死的情况？</summary>
+                        <p>女警比较脆皮。前期出门装选择多兰之盾保续航，中期尽早做出幻影之舞或守护天使。团战时注意站位，利用绳索（W）调整位置，不要被突进英雄近身。</p>
+                    </details>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <!-- Rune -->
+            <div class="build-card">
+                <div class="card-header">
+                    <span class="card-title">符文推荐</span>
+                </div>
+                <div class="item-list">
+                    <div class="item">⚡ 精密</div>
+                    <div class="item">🛡️ 坚决</div>
+                    <div class="item">🗡️ 强攻</div>
+                    <div class="item">⚔️ 过量治疗</div>
+                    <div class="item">🛡️ 复苏之风</div>
+                    <div class="item">⚔️ 坚毅不倒</div>
+                </div>
+            </div>
+
+            <!-- Trivia -->
+            <div class="build-card" style="margin-top: 20px; background-color: #2c3e50; color: white; border-top-color: #fff;">
+                <div class="card-header">
+                    <span class="card-title" style="color: white;">英雄背景</span>
+                </div>
+                <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 10px;">
+                    皮尔特沃夫的警务执行官，以纪律严明和极高的射击精准度著称。她与金克丝是宿敌关系。
+                </p>
+                <div style="font-size: 0.8rem; color: #888;">点击了解更多</div>
+            </div>
+
+            <!-- Patch Notes -->
+            <div class="build-card" style="margin-top: 20px;">
+                <div class="card-header">
+                    <span class="card-title">版本更新</span>
+                </div>
+                <ul style="font-size: 0.9rem; color: var(--text-light);">
+                    <li style="margin-bottom: 10px;">v14.1: 基础攻速调整</li>
+                    <li style="margin-bottom: 10px;">v13.23: 大招冷却时间微调</li>
+                    <li style="margin-bottom: 10px;">v13.5: 平A距离优化</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系方式</a>
+            <a href="#">隐私政策</a>
+        </div>
+        <p class="copyright">&copy; 2023 LOL攻略网. 本站内容仅供学习交流，英雄联盟及相关商标属于 Riot Games。</p>
+    </div>
+</footer>
+
+</body>
+</html>
