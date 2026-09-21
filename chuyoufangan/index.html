@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出游方案 - 精选旅行规划与目的地指南</title>
+    <meta name="description" content="为您提供专业的出游方案，涵盖国内外热门目的地推荐、行程路线设计、预算规划及实用旅行贴士。无论短途周边游还是长途深度游，助您轻松打造完美旅程。">
+    <meta name="keywords" content="出游方案,旅行规划,旅游攻略,路线设计,目的地推荐,度假攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00897b;
+            --primary-dark: #00695c;
+            --accent-color: #ffb74d;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f4f6f8;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-unit);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+            margin-left: 16px;
+            max-width: 300px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00897b 0%, #4db6ac 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-input-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 8px;
+        }
+
+        .hero-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .hero-btn {
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: #333;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            background-color: #ffa726;
+        }
+
+        .hero-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: var(--bg-card);
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Feature Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price span {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Detailed Plan Section */
+        .plan-section {
+            background-color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .plan-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .plan-timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tips Section */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tip-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .tip-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .plan-container {
+                grid-template-columns: 1fr;
+            }
+            .tips-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+                gap: 12px;
+            }
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                出游方案
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门路线</a></li>
+                    <li><a href="#">周边游</a></li>
+                    <li><a href="#">定制服务</a></li>
+                    <li><a href="#">攻略社区</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>开启您的完美旅程</h1>
+                <p>从策划到执行，我们为您提供一站式出游方案。探索未知风景，发现生活之美。</p>
+                <form class="hero-input-group" onsubmit="event.preventDefault(); alert('搜索功能演示：正在为您查找相关出游方案...');">
+                    <input type="text" class="hero-input" placeholder="输入目的地，例如：云南、海边、古镇...">
+                    <button type="submit" class="hero-btn">开始规划</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-btn active">全部推荐</button>
+                <button class="filter-btn">自然风光</button>
+                <button class="filter-btn">人文古迹</button>
+                <button class="filter-btn">海岛度假</button>
+                <button class="filter-btn">亲子乐园</button>
+                <button class="filter-btn">美食之旅</button>
+                <button class="filter-btn">露营徒步</button>
+            </div>
+        </div>
+
+        <!-- Featured Plans -->
+        <section class="container">
+            <h2 class="section-title">精选出游方案</h2>
+            <div class="grid-3">
+                <!-- Plan Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/travel1/400/250" alt="云南大理洱海环湖游">
+                        <span class="card-badge">5天4晚</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">云南大理·洱海环湖慢生活之旅</h3>
+                        <div class="card-meta">
+                            <span>🏔️ 自然风光</span>
+                            <span>📷 摄影</span>
+                        </div>
+                        <p class="card-desc">体验苍山洱海的壮丽景色，入住海景民宿，骑行环海西路，探访喜洲古镇，感受慢节奏的云南生活。</p>
+                        <div class="card-footer">
+                            <div class="price">¥2,899<span>/人起</span></div>
+                            <a href="#" class="btn-link">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Plan Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/travel2/400/250" alt="川西稻城亚丁深度游">
+                        <span class="card-badge">7天6晚</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">川西秘境·稻城亚丁朝圣之旅</h3>
+                        <div class="card-meta">
+                            <span>🏔️ 高原徒步</span>
+                            <span>🌌 摄影发烧</span>
+                        </div>
+                        <p class="card-desc">穿越墨石公园与塔公草原，挑战牛奶海与五色海，在绝美的高原风光中洗涤心灵。</p>
+                        <div class="card-footer">
+                            <div class="price">¥5,680<span>/人起</span></div>
+                            <a href="#" class="btn-link">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Plan Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/travel3/400/250" alt="福建霞浦滩涂摄影">
+                        <span class="card-badge">4天3晚</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">福建霞浦·滩涂光影摄影之旅</h3>
+                        <div class="card-meta">
+                            <span>🌊 海岸线</span>
+                            <span>📸 摄影</span>
+                        </div>
+                        <p class="card-desc">追逐日出日落的绚烂光影，体验渔民赶海的生动场景，拍摄震撼人心的自然大片。</p>
+                        <div class="card-footer">
+                            <div class="price">¥1,899<span>/人起</span></div>
+                            <a href="#" class="btn-link">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Detailed Itinerary Section -->
+        <section class="plan-section">
+            <div class="container">
+                <h2 class="section-title">方案详情：云南大理·洱海环湖慢生活</h2>
+                <div class="plan-container">
+                    <div>
+                        <img src="https://picsum.photos/seed/dali/600/400" alt="大理洱海风光" style="width: 100%; border-radius: var(--border-radius);">
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 16px; font-size: 1.4rem;">行程亮点</h3>
+                        <ul style="list-style: disc; padding-left: 20px; margin-bottom: 24px; color: var(--text-secondary);">
+                            <li><strong>深度体验：</strong>避开人流，深入当地人生活圈。</li>
+                            <li><strong>专业向导：</strong>提供摄影指导与路况实时报告。</li>
+                            <li><strong>舒适住宿：</strong>精选高评分海景民宿。</li>
+                            <li><strong>美食打卡：</strong>品尝地道酸辣鱼与喜洲粑粑。</li>
+                        </ul>
+                        
+                        <h3 style="margin-bottom: 16px; font-size: 1.2rem;">行程安排</h3>
+                        <div class="plan-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <span class="timeline-time">Day 1</span>
+                                <div class="timeline-content">
+                                    <h4>抵达大理，入住古城</h4>
+                                    <p>接机/站，办理入住，自由活动逛古城，品尝特色晚餐。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <span class="timeline-time">Day 2</span>
+                                <div class="timeline-content">
+                                    <h4>环海西路骑行</h4>
+                                    <p>租车环海，途径磻溪村S湾、才村码头，下午前往喜洲古镇。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <span class="timeline-time">Day 3</span>
+                                <div class="timeline-content">
+                                    <h4>苍山索道上山</h4>
+                                    <p>乘坐大索道或感通索道，俯瞰洱海全景，下山后前往双廊。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-dot"></span>
+                                <span class="timeline-time">Day 4</span>
+                                <div class="timeline-content">
+                                    <h4>双廊古镇与返程</h4>
+                                    <p>享受海边时光，购买伴手礼，根据航班/车次送站返程。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="container">
+            <h2 class="section-title">出游小贴士</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <span class="tip-icon">🧳</span>
+                    <div class="tip-title">行李准备</div>
+                    <div class="tip-text">根据目的地气候准备衣物，山区建议携带防风外套。</div>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">💊</span>
+                    <div class="tip-title">常用药品</div>
+                    <div class="tip-text">准备晕车药、创可贴、肠胃药及防晒霜。</div>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">📱</span>
+                    <div class="tip-title">网络通讯</div>
+                    <div class="tip-text">提前购买当地流量包或开通国际漫游，保存紧急联系方式。</div>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🛡️</span>
+                    <div class="tip-title">安全第一</div>
+                    <div class="tip-text">遵守景区规定，不前往未开发区域，注意人身财产安全。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">出发前需要准备什么证件？</div>
+                <div class="faq-answer">
+                    <p>通常需要携带身份证原件。如果是出境游，请务必确认护照有效期，并提前办理好签证。部分景区可能需要出示健康码或预约码，建议出发前在官方平台查看最新要求。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">行程中的饮食和住宿如何安排？</div>
+                <div class="faq-answer">
+                    <p>我们提供的方案中已包含精选住宿和特色餐饮体验。如果您有特殊的饮食禁忌（如素食、过敏等），请在预订时提前备注，我们会尽力为您协调安排。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如果遇到恶劣天气怎么办？</div>
+                <div class="faq-answer">
+                    <p>我们会根据天气预报实时调整行程。如遇不可抗力导致景点无法参观，我们将提供等价替换方案或安排室内活动，确保您的旅程体验不受太大影响。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">可以中途加入或退出团队吗？</div>
+                <div class="faq-answer">
+                    <p>为了保证团队秩序和行程安排，建议全程跟随。如有特殊情况需中途退出，请提前告知客服，我们会协助处理后续事宜。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>出游方案</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        致力于为每一位旅行者提供专业、实用、个性化的出游解决方案。让每一次出发都充满期待，让每一程风景都值得铭记。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>热门分类</h3>
+                    <ul>
+                        <li><a href="#">国内长线游</a></li>
+                        <li><a href="#">出境自由行</a></li>
+                        <li><a href="#">周边短途游</a></li>
+                        <li><a href="#">定制小包团</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">服务保障</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书笔记</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 出游方案服务平台 版权所有 | 本站内容仅供参考，具体以实际预订为准</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Interaction
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Filter Tabs Interaction
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+              </html>
